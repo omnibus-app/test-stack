@@ -21,21 +21,21 @@ gulp.task('test', function(cb){
       gulp.src([
         './basic/*-spec.js',
         './dom/*-spec.js',
-        './backbone/test.html'
+        // './backbone/test.html'
       ])
-        // .pipe(mocha({reporter: 'spec'}))
-        .pipe(mochaPhantomJS({reporter: 'spec'}))
+        .pipe(mocha({reporter: 'spec'}))
+        // .pipe(mochaPhantomJS({reporter: 'spec'}))
         .pipe(istanbul.writeReports())
         .on('end', cb);
     });
 });
 
-gulp.task('backbone', function(cb){
-  gulp.src('./backbone/test.html')
-    .pipe(mochaPhantomJS({reporter: 'spec'}))
-    .pipe(istanbul.writeReports())
-    .on('end', cb);
-});
+// gulp.task('backbone', function(cb){
+//   gulp.src('./backbone/test.html')
+//     .pipe(mochaPhantomJS({reporter: 'spec'}))
+//     .pipe(istanbul.writeReports())
+//     .on('end', cb);
+// });
 
 
-gulp.task('default', ['test', 'backbone']);
+gulp.task('default', ['test']);
